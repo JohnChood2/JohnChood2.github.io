@@ -63,5 +63,6 @@
 /* Wrapper */
 
 	.wrapper.style2 {
-		background: #fdfdfd url("images/bg01.png");
+		background: #fdfdfd url("images/bg01.png"); 
+     /*   background: #fdfdfd url("images/frederic_tapissier_1.jpg");*/
 	}
