@@ -1,138 +1,336 @@
 <!DOCTYPE HTML>
 <!--
-	Arcana by HTML5 UP
-	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Modern Futuristic Website for John C. Hood II
+	Enhanced with modern design and interactivity
 -->
-<html>
+<html lang="en">
 
   <head>
-    <title>John C. Hood II</title>
+    <title>John C. Hood II - Astrophysicist & Researcher</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <meta name="description" content="John C. Hood II - Astrophysicist and postdoctoral researcher at University of Chicago specializing in time-domain astronomy, AGN monitoring, and millimeter wavelength observations." />
+    <meta name="keywords" content="John, Hood, astronomy, astrophysics, University of Chicago, AGN, blazars, cosmology, data analysis, SPT, CMB, time-domain astronomy" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="assets/css/main.css" />
-    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-    <meta name="keywords" content="John, Hood, astronomy, astrophysics, Vanderbilt, galaxy, galaxies,
-                                       cosmology, data analysis, astro, large-scale structure, blazars" />
+    <link rel="stylesheet" href="assets/css/modern.css" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="John C. Hood II - Astrophysicist & Researcher">
+    <meta property="og:description" content="Postdoctoral researcher at University of Chicago specializing in time-domain astronomy and AGN monitoring.">
+    <meta property="og:image" content="images/john.jpg">
+    <meta property="og:url" content="https://johnchood2.github.io">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="John C. Hood II - Astrophysicist & Researcher">
+    <meta name="twitter:description" content="Postdoctoral researcher at University of Chicago specializing in time-domain astronomy and AGN monitoring.">
+    <meta name="twitter:image" content="images/john.jpg">
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112922413-1"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
-
       gtag('config', 'UA-112922413-1');
     </script>
   </head>
 
   <body>
+    <!-- Modern Navigation -->
+    <nav class="nav" id="main-nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <i class="fas fa-star"></i> John C. Hood II
+        </a>
+        
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#research" class="nav-link">Research</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#publications" class="nav-link">Publications</a></li>
+          <li><a href="#outreach" class="nav-link">Outreach</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions">
+          <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
     <div id="page-wrapper">
 
-      <!-- Header -->
-      <div id="header">
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <div class="hero-avatar">
+            <img src="images/best_frontpage.png" alt="John C. Hood II" class="avatar-image">
+            <div class="avatar-glow"></div>
+          </div>
+          
+          <h1 class="hero-title">
+            <span class="typing-text" data-texts="John C. Hood II,Astrophysicist,Researcher,Data Scientist">John C. Hood II</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            Postdoctoral Researcher at University of Chicago<br>
+            Specializing in Time-Domain Astronomy & AGN Monitoring
+          </p>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="counter" data-target="8" data-duration="2000">0</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="15" data-duration="2000">0</span>
+              <span class="stat-label">Publications</span>
+            </div>
+            <div class="stat-item">
+              <span class="counter" data-target="3" data-duration="2000">0</span>
+              <span class="stat-label">Major Projects</span>
+            </div>
+          </div>
+          
+          <div class="hero-cta">
+            <a href="#research" class="btn btn-primary">
+              <i class="fas fa-rocket"></i> Explore My Research
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i> Get In Touch
+            </a>
+          </div>
+          
+          <div class="hero-social">
+            <a href="https://github.com/JohnChood2" target="_blank" class="social-link">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/JohnChood2" target="_blank" class="social-link">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/john-hood-phd/" target="_blank" class="social-link">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://orcid.org/0000-0003-4157-4185" target="_blank" class="social-link">
+              <i class="fab fa-orcid"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Animated Background Elements -->
+        <div class="hero-particles">
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+          <div class="particle"></div>
+        </div>
+      </section>
 
-        <!-- Logo -->
-        <h1><a href="index.html" id="logo">John C. Hood II Ph.D</a></h1>
-
-        <!-- Nav -->
-        <nav id="nav">
-          <ul>
-            <li class="current"><a href="index.html">Home</a></li>
-            <li><a href="Hood_research.html">Research</a></li>
-            <li><a href="Hood_CV.html">CV</a></li>
-            <li><a href="Hood_resources.html">Resources</a></li>
-            <li><a href="Hood_data.html">Data</a></li>
-            <li><a href="Hood_outreach.html">Outreach and Media</a></li>
-
-          </ul>
-        </nav>
-
-      </div>
-
-      <!-- Main -->
-      <section class="wrapper style1">
+      <!-- About Section -->
+      <section id="about" class="section">
         <div class="container">
-          <div class="row 200%">
-            <div class="4u 12u(narrower)">
-              <div id="sidebar">
-
-                <!-- Sidebar -->
-
-                <section>
-                  <span class="image featured"><img style="width: 310px;" src="images/best_frontpage.png" alt="" /></span>
-                  <p><b>Email:</b><br> <a href="mailto:hood.astro@gmail.com">hood[dot]astro[at]gmail[dot]com</a><br>
-
-                    <!--                                                <b>Phone:</b><br> +1 321-704-3090  <br>-->
-                    <b>Office:</b> <br>ERC 533
-                  </p>
-                  <p style="text-align: left;"><b>Postal Address:</b> <br>
-                    Astronomy & Astrophysics <br>
-                    5801 South Ellis Avenue <br>
-                    William Eckhardt Research Center <br>
-                    Chicago, IL 60637 <br>
-                    United States<br>
-                  </p>
-                  <ul class="icons">
-                    <li><a href="https://github.com/JohnChood2" class="icon fa-github"><span class="label">GitHub</span></a></li>
-                    <li><a href="https://twitter.com/JohnChood2" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-                    <li><a href="https://www.linkedin.com/in/john-hood-phd/" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                  </ul>
-                  <a href="https://orcid.org/0000-0003-4157-4185" target="orcid.widget" rel="noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">orcid.org/0000-0003-4157-4185</a>
-                  <a onclick="window.open(this.href); return false;" href="https://ui.adsabs.harvard.edu/search/q=author%3A(%22Hood%2C%20John%22%20OR%20%22Hood%2C%20J.%22%20OR%20%22Calven%20Hood%2C%20John%22)%20AND%20%20year%3A%5B2006-*%5D%20AND%20%20full%3A(%22CMB%22%20OR%20%22SPT%22%20OR%20%22Vanderbilt%22%20OR%20%22Fisk%22%20OR%20%22Columbus%20State%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0" class="button icon fa-info-circle">My Publications</a>
-
-                </section><br>
-
-                <section>
-                  <h3>Resources and Links</h3>
-                  <ul class="links">
-                    <li><a href="http://vandyastroml.github.io" target="_blank">Vanderbilt Computational Workshop</a></li>
-                  </ul>
-                </section>
-
-
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle">Passionate about understanding the dynamic universe through cutting-edge research</p>
+          </div>
+          
+          <div class="grid grid-2">
+            <div class="about-content scroll-reveal">
+              <h3>My Journey</h3>
+              <p>
+                I'm John Hood, an astronomer and current postdoctoral researcher at the University of Chicago. 
+                My work focuses on understanding the dynamic universe, with a particular interest in time-domain 
+                astronomy and the physics driving transient astrophysical phenomena.
+              </p>
+              <p>
+                I combine observational data with statistical and machine learning techniques to uncover patterns 
+                in variable and flaring sources. Passionate about both discovery and data, I aim to develop 
+                tools that push the boundaries of how we observe and interpret the cosmos.
+              </p>
+              
+              <div class="research-interests">
+                <h4>Research Interests</h4>
+                <div class="interest-tags">
+                  <span class="tag">Millimeter Transients (AGN)</span>
+                  <span class="tag">MKID and TES Detector Development</span>
+                  <span class="tag">Machine Learning & AI</span>
+                  <span class="tag">Astronomical Instrumentation</span>
+                  <span class="tag">Experimental Cosmology</span>
+                </div>
               </div>
             </div>
-            <!--							<div class="8u  12u(narrower) important(narrower)">-->
-            <div class="8u skel-cell-important">
-              <div id="content">
+            
+            <div class="about-visual scroll-reveal">
+              <div class="card card-glow">
+                <h4>Current Position</h4>
+                <div class="position-info">
+                  <div class="position-title">Heising-Simons Fellow</div>
+                  <div class="position-institution">University of Chicago</div>
+                  <div class="position-period">2022 - Present</div>
+                </div>
+                
+                <div class="contact-info">
+                  <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:hood.astro@gmail.com">hood.astro@gmail.com</a>
+                  </div>
+                  <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>ERC 533, Chicago, IL</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <!-- Content -->
+      <!-- Research Section -->
+      <section id="research" class="section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Research</h2>
+            <p class="section-subtitle">Exploring the dynamic universe through cutting-edge observational techniques</p>
+          </div>
+          
+          <div class="research-grid">
+            <div class="research-card card scroll-reveal">
+              <div class="research-image">
+                <img src="images/PKS_2326_502.png" alt="SPT-Pol AGN Monitoring" loading="lazy">
+              </div>
+              <div class="research-content">
+                <h3>SPT-Pol AGN Monitoring</h3>
+                <p>Millimeter wavelength monitoring of Active Galactic Nuclei using South Pole Telescope data. 
+                   Developing observational pipelines for AGN variability studies in the mm band.</p>
+                <div class="research-tags">
+                  <span class="tag">AGN</span>
+                  <span class="tag">SPT</span>
+                  <span class="tag">Millimeter Astronomy</span>
+                </div>
+                <a href="Hood_research.html" class="btn btn-ghost">Learn More</a>
+              </div>
+            </div>
+            
+            <div class="research-card card scroll-reveal">
+              <div class="research-image">
+                <img src="images/FullWafer.jpg" alt="MKID Detector Development" loading="lazy">
+              </div>
+              <div class="research-content">
+                <h3>MKID Detector Development</h3>
+                <p>Low loss microstrip materials with MKIDs for microwave applications. 
+                   Characterizing dielectric loss of various microstrip materials and substrates.</p>
+                <div class="research-tags">
+                  <span class="tag">Instrumentation</span>
+                  <span class="tag">MKIDs</span>
+                  <span class="tag">Detectors</span>
+                </div>
+                <a href="Hood_research.html" class="btn btn-ghost">Learn More</a>
+              </div>
+            </div>
+            
+            <div class="research-card card scroll-reveal">
+              <div class="research-image">
+                <img src="images/aas1954-388.jpg" alt="Blazar Analysis" loading="lazy">
+              </div>
+              <div class="research-content">
+                <h3>Multi-wavelength Blazar Analysis</h3>
+                <p>Studying multi-wavelength observations of Fermi bright blazars to search for 
+                   optical and gamma-ray orphan flares using SMARTS and Fermi data.</p>
+                <div class="research-tags">
+                  <span class="tag">Blazars</span>
+                  <span class="tag">Multi-wavelength</span>
+                  <span class="tag">Fermi</span>
+                </div>
+                <a href="Hood_research.html" class="btn btn-ghost">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <article>
-                  <p>
-                   I'm John Hood, an astronomer and current postdoctoral researcher at the University of Chicago. My work focuses on understanding the dynamic universe, with a particular interest in time-domain astronomy and the physics driving transient astrophysical phenomena. I combine observational data with statistical and machine learning techniques to uncover patterns in variable and flaring sources. Passionate about both discovery and data, I aim to develop tools that push the boundaries of how we observe and interpret the cosmos. I am currently a Heising-Simons Fellow at the University of Chicago where I helped develop an observational pipeline and catalog that uses millimeter wavelength data from the <a href="https://astro.uchicago.edu/research/spt.php" target="_blank">South Pole Telescope</a> and <a href="https://act.princeton.edu/" target="_blank">ACT</a> to study the variability of Active Galactic Nuclei (AGN).
-
-                  </p>
-
-                  <p><b>My research interests include:</b></p>
-                  <ul style="list-style-type:disc; list-style-position: inside;">
-                    <li> Millimeter Transients (AGN) </li>
-                    <li> MKID and TES detector development </li>
-                    <li> Machine Learning and AI</li>
-                    <li> Astronomical Instrumentation </li>
-                    <li> Experimental Cosmology </li>
-                  </ul>
-
-                  <p><b>My academic references:</b></p>
-                  <ul style="list-style-type:disc; list-style-position: inside;">
-                    <li><a href="http://astro.phy.vanderbilt.edu/~holleyjk/Site/" target="_blank">Prof. Kelly Holley-Bockelmann</a>, Vanderbilt University</li>
-                    <li><a href="https://astrophysics.uchicago.edu/people/profile/stephan-s.-meyer/" target="_blank">Prof. Stephan Meyer</a>, University of Chicago</li>
-                    <li><a href="https://astro.uchicago.edu/people/thomas-crawford.php" target="_blank">Dr. Tom Crawford</a>, University of Chicago</li>
-                    <li><a href="https://www.pma.caltech.edu/people/stephen-padin" target="_blank">Dr. Stephan Padin</a>, California Institute of Technology</li>
-                  </ul>
-                  <p><b>Additional References</b></p>
-                  <li><a href="https://www.nsf.gov/staff/staff_bio.jsp?lan=aberlind&from_org=NSF" target="_blank">Prof. Andreas Berlind</a>, Vanderbilt University</li>
-                  <li><a href="https://astrophysics.uchicago.edu/people/profile/john-e.-carlstrom/" target="_blank">Prof. John Carlstrom</a>, University of Chicago</li>
-
-
-                  </ul>
-                </article>
-
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <div class="section-header scroll-reveal">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss research opportunities, collaborations, or just chat about astronomy</p>
+          </div>
+          
+          <div class="grid grid-2">
+            <div class="contact-info scroll-reveal">
+              <div class="card">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <div>
+                    <strong>Email</strong>
+                    <a href="mailto:hood.astro@gmail.com">hood.astro@gmail.com</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <div>
+                    <strong>Office</strong>
+                    <span>ERC 533, University of Chicago</span>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-university"></i>
+                  <div>
+                    <strong>Institution</strong>
+                    <span>University of Chicago</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-form scroll-reveal">
+              <div class="card">
+                <h3>Send a Message</h3>
+                <form class="contact-form-element">
+                  <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required>
+                  </div>
+                  <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -140,21 +338,55 @@
       </section>
 
       <!-- Footer -->
-      <div id="footer">
+      <footer class="footer">
         <div class="container">
-          <div class="row">
+          <div class="footer-content">
+            <div class="footer-section">
+              <h4>John C. Hood II</h4>
+              <p>Astrophysicist & Researcher</p>
+              <div class="social-links">
+                <a href="https://github.com/JohnChood2" target="_blank">
+                  <i class="fab fa-github"></i>
+                </a>
+                <a href="https://twitter.com/JohnChood2" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/john-hood-phd/" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://orcid.org/0000-0003-4157-4185" target="_blank">
+                  <i class="fab fa-orcid"></i>
+                </a>
+              </div>
+            </div>
+            
+            <div class="footer-section">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="Hood_CV.html">CV</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            
+            <div class="footer-section">
+              <h4>Research</h4>
+              <ul>
+                <li><a href="Hood_research.html">Current Projects</a></li>
+                <li><a href="Hood_outreach.html">Outreach</a></li>
+                <li><a href="Hood_data.html">Data</a></li>
+                <li><a href="Hood_resources.html">Resources</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="footer-bottom">
+            <p>&copy; 2024 John C. Hood II. All rights reserved.</p>
+            <p>Built with modern web technologies</p>
           </div>
         </div>
-
-        <!-- Copyright -->
-        <div class="copyright">
-          <ul class="menu">
-            <li>&copy; John C. Hood II (2022). All rights reserved</li>
-            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-          </ul>
-        </div>
-
-      </div>
+      </footer>
 
     </div>
 
@@ -163,8 +395,8 @@
     <script src="assets/js/jquery.dropotron.min.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/modern.js"></script>
 
   </body>
 
