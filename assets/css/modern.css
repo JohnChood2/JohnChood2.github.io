@@ -21,6 +21,15 @@
   --text-muted: #666666;
   --text-accent: var(--primary);
   
+  /* Light Theme Colors */
+  --bg-primary-light: #ffffff;
+  --bg-secondary-light: #f8f9fa;
+  --bg-tertiary-light: #e9ecef;
+  --bg-glass-light: rgba(255, 255, 255, 0.8);
+  --text-primary-light: #212529;
+  --text-secondary-light: #6c757d;
+  --text-muted-light: #adb5bd;
+  
   /* Spacing */
   --space-xs: 0.5rem;
   --space-sm: 1rem;
@@ -392,6 +401,16 @@ a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  min-height: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-text {
+  display: inline-block;
+  min-height: 1.2em;
+  text-align: center;
 }
 
 .hero-subtitle {
@@ -1611,5 +1630,171 @@ a:hover {
   
   .media-item {
     padding: var(--space-sm);
+  }
+}
+
+/* Light Theme Styles */
+[data-theme="light"] {
+  --bg-primary: var(--bg-primary-light);
+  --bg-secondary: var(--bg-secondary-light);
+  --bg-tertiary: var(--bg-tertiary-light);
+  --bg-glass: var(--bg-glass-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-muted: var(--text-muted-light);
+}
+
+[data-theme="light"] .hero::before {
+  background: linear-gradient(135deg, var(--bg-primary-light) 0%, var(--bg-secondary-light) 100%);
+}
+
+[data-theme="light"] .hero::after {
+  background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+}
+
+[data-theme="light"] .card {
+  background: var(--bg-glass-light);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .nav {
+  background: var(--bg-glass-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .nav.scrolled {
+  background: var(--bg-secondary-light);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Performance Optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  loading: lazy;
+}
+
+/* Critical CSS for above-the-fold content */
+.hero {
+  will-change: transform;
+}
+
+.hero-title {
+  will-change: transform;
+}
+
+.typing-text {
+  will-change: contents;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .particle {
+    animation: none;
+  }
+  
+  .avatar-glow {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .nav,
+  .hero-particles,
+  .btn,
+  .social-link {
+    display: none !important;
+  }
+  
+  .hero {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+  
+  .section {
+    padding: 1rem 0;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary: #00bfff;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+  }
+  
+  .card {
+    border: 2px solid var(--primary);
+  }
+  
+  .btn {
+    border: 2px solid var(--primary);
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn:focus,
+.social-link:focus,
+.nav-link:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary);
+  color: var(--bg-primary);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--bg-secondary) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
   }
 }

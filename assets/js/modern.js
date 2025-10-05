@@ -18,6 +18,9 @@ class ModernWebsite {
     this.setupTypingAnimation();
     this.setupCounters();
     this.setupLazyLoading();
+    this.setupPerformanceMonitoring();
+    this.setupAccessibility();
+    this.setupErrorHandling();
   }
 
   // Navigation functionality
@@ -104,25 +107,51 @@ class ModernWebsite {
     const themeToggle = document.querySelector('.theme-toggle');
     const body = document.body;
     
-    // Check for saved theme preference or default to 'dark'
-    const currentTheme = localStorage.getItem('theme') || 'dark';
+    // Check for saved theme preference, system preference, or default to 'dark'
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+    
     body.setAttribute('data-theme', currentTheme);
+    
+    // Update toggle button icon on load
+    if (themeToggle) {
+      const icon = themeToggle.querySelector('i');
+      if (icon) {
+        icon.className = currentTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+      }
+    }
     
     if (themeToggle) {
       themeToggle.addEventListener('click', () => {
         const currentTheme = body.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         
+        // Smooth transition
+        body.style.transition = 'background-color 0.3s ease, color 0.3s ease';
         body.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         
         // Update toggle button icon
         const icon = themeToggle.querySelector('i');
         if (icon) {
-          icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+          icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
         }
+        
+        // Remove transition after animation
+        setTimeout(() => {
+          body.style.transition = '';
+        }, 300);
       });
     }
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        body.setAttribute('data-theme', newTheme);
+      }
+    });
   }
 
   // Mobile menu functionality
@@ -250,19 +279,117 @@ class ModernWebsite {
   setupLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
     
-    const imageObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.dataset.src;
-          img.classList.remove('lazy');
-          imageObserver.unobserve(img);
-        }
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            imageObserver.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px 0px',
+        threshold: 0.01
       });
+      
+      images.forEach(img => {
+        imageObserver.observe(img);
+      });
+    } else {
+      // Fallback for older browsers
+      images.forEach(img => {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+      });
+    }
+  }
+
+  // Performance monitoring
+  setupPerformanceMonitoring() {
+    // Monitor Core Web Vitals
+    if ('PerformanceObserver' in window) {
+      // Largest Contentful Paint
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('LCP:', entry.startTime);
+        }
+      }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+      // First Input Delay
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          console.log('FID:', entry.processingStart - entry.startTime);
+        }
+      }).observe({ entryTypes: ['first-input'] });
+
+      // Cumulative Layout Shift
+      new PerformanceObserver((entryList) => {
+        for (const entry of entryList.getEntries()) {
+          if (!entry.hadRecentInput) {
+            console.log('CLS:', entry.value);
+          }
+        }
+      }).observe({ entryTypes: ['layout-shift'] });
+    }
+  }
+
+  // Accessibility enhancements
+  setupAccessibility() {
+    // Skip to content link
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    document.body.insertBefore(skipLink, document.body.firstChild);
+
+    // Add main content landmark
+    const mainContent = document.querySelector('#page-wrapper');
+    if (mainContent) {
+      mainContent.id = 'main-content';
+      mainContent.setAttribute('role', 'main');
+    }
+
+    // Enhance keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      // Escape key closes mobile menu
+      if (e.key === 'Escape') {
+        const navMenu = document.querySelector('.nav-menu');
+        const navToggle = document.querySelector('.nav-toggle');
+        if (navMenu && navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
+        }
+      }
     });
-    
-    images.forEach(img => {
-      imageObserver.observe(img);
+
+    // Announce page changes to screen readers
+    const announcer = document.createElement('div');
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('aria-atomic', 'true');
+    announcer.className = 'sr-only';
+    document.body.appendChild(announcer);
+
+    // Function to announce changes
+    window.announceToScreenReader = (message) => {
+      announcer.textContent = message;
+      setTimeout(() => {
+        announcer.textContent = '';
+      }, 1000);
+    };
+  }
+
+  // Error handling
+  setupErrorHandling() {
+    window.addEventListener('error', (e) => {
+      console.error('JavaScript error:', e.error);
+      // Could send to analytics service here
+    });
+
+    window.addEventListener('unhandledrejection', (e) => {
+      console.error('Unhandled promise rejection:', e.reason);
+      // Could send to analytics service here
     });
   }
 
