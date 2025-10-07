@@ -274,14 +274,15 @@ a:hover {
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: var(--bg-glass);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(10, 10, 10, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   transition: var(--transition-normal);
 }
 
 .nav.scrolled {
-  background: var(--bg-secondary);
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(20px);
   box-shadow: var(--shadow-lg);
 }
 
@@ -1658,12 +1659,13 @@ a:hover {
 }
 
 [data-theme="light"] .nav {
-  background: var(--bg-glass-light);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="light"] .nav.scrolled {
-  background: var(--bg-secondary-light);
+  background: rgba(248, 249, 250, 0.8);
+  backdrop-filter: blur(20px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
