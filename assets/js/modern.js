@@ -21,6 +21,7 @@ class ModernWebsite {
     this.setupPerformanceMonitoring();
     this.setupAccessibility();
     this.setupErrorHandling();
+    this.setupContactForm();
   }
 
   // Navigation functionality
@@ -390,6 +391,64 @@ class ModernWebsite {
     window.addEventListener('unhandledrejection', (e) => {
       console.error('Unhandled promise rejection:', e.reason);
       // Could send to analytics service here
+    });
+  }
+
+  setupContactForm() {
+    const contactForm = document.querySelector('.contact-form-element');
+    if (!contactForm) return;
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitButton = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitButton.innerHTML;
+      
+      // Show loading state
+      submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitButton.disabled = true;
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Success
+          submitButton.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+          submitButton.classList.remove('btn-primary');
+          submitButton.classList.add('btn-success');
+          contactForm.reset();
+          
+          // Reset after 3 seconds
+          setTimeout(() => {
+            submitButton.innerHTML = originalText;
+            submitButton.classList.remove('btn-success');
+            submitButton.classList.add('btn-primary');
+            submitButton.disabled = false;
+          }, 3000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        // Error state
+        submitButton.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Error - Try Again';
+        submitButton.classList.remove('btn-primary');
+        submitButton.classList.add('btn-danger');
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+          submitButton.innerHTML = originalText;
+          submitButton.classList.remove('btn-danger');
+          submitButton.classList.add('btn-primary');
+          submitButton.disabled = false;
+        }, 3000);
+      }
     });
   }
 
