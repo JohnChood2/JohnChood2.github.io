@@ -649,8 +649,11 @@ class ProjectShowcase {
 document.addEventListener('DOMContentLoaded', () => {
   new ModernWebsite();
   
-  // Initialize project showcase if on projects page
-  if (document.querySelector('.projects-grid')) {
+  // Initialize project showcase only if the grid exists AND is empty
+  // (allows index.html to ship static, hand-curated project cards
+  // without the showcase overwriting them via innerHTML).
+  const projectsGrid = document.querySelector('.projects-grid');
+  if (projectsGrid && projectsGrid.children.length === 0) {
     new ProjectShowcase();
   }
 });
