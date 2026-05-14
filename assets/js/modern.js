@@ -498,6 +498,30 @@ class ProjectShowcase {
     this.projects = [
       {
         id: 1,
+        title: 'STRAWHAT Catalog',
+        description: 'Public data catalog of SPT-3G AGN light curves — multi-frequency millimeter-wavelength monitoring released for the broader astronomy community.',
+        technologies: ['Data Catalog', 'SPT-3G', 'AGN', 'Light Curves'],
+        image: 'images/strawhat_logo.png',
+        link: 'https://spt3g.ncsa.illinois.edu/datasets/spt_agn_lightcurves/',
+        github: null,
+        demo: null,
+        category: 'research',
+        imageFit: 'contain'
+      },
+      {
+        id: 2,
+        title: 'sci-runner',
+        description: 'Lightweight workflow runner for scientific computing tasks — orchestrating reproducible analysis pipelines.',
+        technologies: ['Python', 'Workflow', 'Open Source', 'Reproducibility'],
+        image: 'images/sci-runner-logo.jpeg',
+        link: 'https://johnchood2.github.io/sci-runner/',
+        github: null,
+        demo: null,
+        category: 'research',
+        imageFit: 'contain'
+      },
+      {
+        id: 3,
         title: 'SPT-Pol AGN Monitoring',
         description: 'Millimeter wavelength monitoring of Active Galactic Nuclei using South Pole Telescope data.',
         technologies: ['Python', 'Astronomy', 'Data Analysis', 'Machine Learning'],
@@ -507,7 +531,7 @@ class ProjectShowcase {
         category: 'research'
       },
       {
-        id: 2,
+        id: 4,
         title: 'MKID Detector Development',
         description: 'Low loss microstrip materials with MKIDs for microwave applications.',
         technologies: ['Hardware', 'Physics', 'Instrumentation'],
@@ -517,7 +541,7 @@ class ProjectShowcase {
         category: 'instrumentation'
       },
       {
-        id: 3,
+        id: 5,
         title: 'Blazar Analysis Pipeline',
         description: 'Multi-wavelength analysis of Fermi bright blazars for orphan flare detection.',
         technologies: ['Python', 'Astronomy', 'Data Visualization'],
@@ -575,30 +599,42 @@ class ProjectShowcase {
     
     const projectsToRender = projects || this.getFilteredProjects();
     
-    container.innerHTML = projectsToRender.map(project => `
+    container.innerHTML = projectsToRender.map(project => {
+      const imgClass = project.imageFit === 'contain' ? 'project-img img-contain' : 'project-img';
+      const imageMarkup = `<img src="${project.image}" alt="${project.title}" loading="lazy" class="${imgClass}">`;
+      const imageWrapped = project.link
+        ? `<a href="${project.link}" target="_blank" rel="noopener" class="project-image-link" aria-label="${project.title}">${imageMarkup}</a>`
+        : imageMarkup;
+      const titleWrapped = project.link
+        ? `<a href="${project.link}" target="_blank" rel="noopener" class="project-title-link"><h3 class="project-title">${project.title}</h3></a>`
+        : `<h3 class="project-title">${project.title}</h3>`;
+      return `
       <div class="project-card card scroll-reveal">
         <div class="project-image">
-          <img src="${project.image}" alt="${project.title}" loading="lazy">
+          ${imageWrapped}
           <div class="project-overlay">
             <div class="project-links">
-              ${project.github ? `<a href="${project.github}" target="_blank" class="btn btn-ghost btn-sm">
+              ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+                <i class="fas fa-external-link-alt"></i> Visit Site
+              </a>` : ''}
+              ${project.github ? `<a href="${project.github}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
                 <i class="fab fa-github"></i> Code
               </a>` : ''}
-              ${project.demo ? `<a href="${project.demo}" target="_blank" class="btn btn-primary btn-sm">
+              ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
                 <i class="fas fa-external-link-alt"></i> Demo
               </a>` : ''}
             </div>
           </div>
         </div>
         <div class="project-content">
-          <h3 class="project-title">${project.title}</h3>
+          ${titleWrapped}
           <p class="project-description">${project.description}</p>
           <div class="project-technologies">
             ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
           </div>
         </div>
       </div>
-    `).join('');
+    `;}).join('');
   }
 
   getFilteredProjects() {
