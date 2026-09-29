@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }}
+      &middot; <a href="{{ site.publications_url }}">My Publications (NASA ADS)</a></p>
+    <div class="social-icons">
+      <a href="{{ site.social.github }}" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="{{ site.social.linkedin }}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="{{ site.social.orcid }}" aria-label="ORCID"><i class="fab fa-orcid"></i></a>
+      <a href="mailto:{{ site.email }}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      <a href="{{ '/notes/feed.xml' | relative_url }}" aria-label="Notes RSS feed"><i class="fas fa-rss"></i></a>
+    </div>
+  </div>
+</footer>

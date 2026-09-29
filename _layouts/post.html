@@ -1,0 +1,17 @@
+---
+layout: default
+---
+{% assign minutes = content | strip_html | number_of_words | divided_by: 200 | at_least: 1 %}
+<article class="post prose">
+  <header class="post-header">
+    <p class="post-back"><a href="{{ '/notes/' | relative_url }}">&larr; All notes</a></p>
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      &middot; {{ minutes }} minute read
+    </p>
+    {% include tag-list.html tags=page.tags %}
+  </header>
+
+  {{ content }}
+</article>
