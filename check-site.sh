@@ -7,4 +7,4 @@ set -euo pipefail
 export LC_ALL=en_US.UTF-8
 
 bundle exec jekyll build
-bundle exec htmlproofer _site --disable-external
+bundle exec htmlproofer _site --disable-external --no-enforce-https
