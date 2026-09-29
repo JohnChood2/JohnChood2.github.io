@@ -49,7 +49,7 @@ README.md                how to write a post and preview locally
 - Post URLs: `/notes/YYYY/MM/DD/slug/`.
 - Reading time is computed in the layout from the word count (words / 200).
 - Only plugins in the GitHub Pages allow-list are used (`jekyll-feed`, `jekyll-seo-tag`).
-- `docs/` is excluded from the built site.
+- `_planning/` (this spec and the plan) is not published: Jekyll skips folders starting with `_`.
 
 ### Front matter for a post
 

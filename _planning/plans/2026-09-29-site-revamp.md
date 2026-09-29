@@ -8,7 +8,7 @@
 
 **Tech Stack:** Jekyll via the `github-pages` gem (same versions as the live build), `jekyll-feed`, `jekyll-seo-tag`, Rouge syntax highlighting, plain CSS, ~10 lines of vanilla JS. `html-proofer` for local link checking. Homebrew `ruby@3.3` for local builds.
 
-**Spec:** `docs/superpowers/specs/2026-09-29-site-revamp-design.md`
+**Spec:** `_planning/specs/2026-09-29-site-revamp-design.md`
 
 ## Global Constraints
 
