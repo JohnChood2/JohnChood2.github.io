@@ -29,7 +29,9 @@ whenever changes are merged into `master`.
 5. Commit, push, and open a pull request (or push to `master` to publish right away).
 
 Notes:
-- **Posts dated in the future are not published** until that date (Chicago time).
+- **Posts dated in the future are not published** until the site rebuilds on or after
+  that date (Chicago time). The site only rebuilds when something is pushed, so a
+  future-dated post appears after the first push on or after its date.
 - Tags can be any words, for example `tags: [research, data science]`.
   Each tag gets a section on the tags page automatically.
 - Reading time is calculated automatically.

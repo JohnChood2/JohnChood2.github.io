@@ -3,7 +3,8 @@
 # 1. Copy this file into the _posts/ folder.
 # 2. Rename it to YYYY-MM-DD-short-title.md (e.g. 2026-10-05-fitting-light-curves.md).
 #    The date in the filename is the publish date. Posts dated in the future are
-#    NOT shown until that date.
+#    NOT shown until you push a change on or after that date (the site only
+#    rebuilds when something is pushed).
 # 3. Fill in the fields below, replace the section text, and delete any sections
 #    you don't need.
 title: "What I learned about ..."
@@ -21,7 +22,7 @@ What problem or question got you started? What did you want to understand?
 ## Background
 
 The minimum context a reader needs. Link to papers, docs, or earlier notes, for example
-[an earlier note]({% post_url 2026-09-29-welcome-to-my-notes %}).
+[my Notes page]({{ '/notes/' | relative_url }}).
 
 ## What I did
 
@@ -34,7 +35,7 @@ flux = np.loadtxt("light_curve.txt")
 print(flux.mean())
 ```
 
-Images go in `images/notes/` and are added like this:
+Images go in `images/notes/` and are added like this (replace example.png with your file):
 
 ![Short description of the figure]({{ '/images/notes/example.png' | relative_url }})
 
