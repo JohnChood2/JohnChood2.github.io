@@ -182,7 +182,16 @@ description: >-
   </p>
 </section>
 
-<!-- RECENT_NOTES -->
+<section class="section" id="notes">
+  <h2>Recent Notes</h2>
+  {% assign recent_posts = site.posts | slice: 0, 3 %}
+  {% if recent_posts.size > 0 %}
+    {% include post-list.html posts=recent_posts %}
+    <p><a href="{{ '/notes/' | relative_url }}">All notes &rarr;</a></p>
+  {% else %}
+    <p class="muted">No notes yet.</p>
+  {% endif %}
+</section>
 
 <section class="section" id="outreach">
   <h2>Outreach &amp; Media</h2>

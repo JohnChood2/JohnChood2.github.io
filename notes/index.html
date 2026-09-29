@@ -1,0 +1,15 @@
+---
+layout: default
+title: Notes
+description: Notes on things I'm working on and learning.
+---
+<header class="page-header">
+  <h1>Notes</h1>
+  <p class="page-lead">Notes on things I'm working on and learning. Browse by <a href="{{ '/notes/tags.html' | relative_url }}">tag</a>.</p>
+</header>
+
+{% if site.posts.size > 0 %}
+  {% include post-list.html posts=site.posts %}
+{% else %}
+  <p class="muted">No notes yet.</p>
+{% endif %}

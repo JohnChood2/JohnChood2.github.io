@@ -1,0 +1,24 @@
+---
+layout: default
+title: Notes by tag
+---
+<header class="page-header">
+  <h1>Notes by tag</h1>
+  <p class="page-lead"><a href="{{ '/notes/' | relative_url }}">&larr; All notes</a></p>
+</header>
+
+{% assign tags = site.tags | sort %}
+
+<ul class="tag-list">
+  {% for tag in tags %}
+  <li><a class="tag" href="#{{ tag[0] | slugify }}">{{ tag[0] }} ({{ tag[1].size }})</a></li>
+  {% endfor %}
+</ul>
+
+{% for tag in tags %}
+<section class="tag-section">
+  {% assign tag_posts = tag[1] %}
+  <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }} <span class="tag-count">({{ tag_posts.size }})</span></h2>
+  {% include post-list.html posts=tag_posts %}
+</section>
+{% endfor %}
